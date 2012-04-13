@@ -1,1 +1,6 @@
-// custom test runner code
+;(function(){
+  "use strict";
+
+  // custom test runnner code
+
+})();

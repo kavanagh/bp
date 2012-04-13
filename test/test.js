@@ -1,3 +1,5 @@
+"use strict";
+
 module('' /*, {
    setUp : function() {},
    tearDown : function() {}
