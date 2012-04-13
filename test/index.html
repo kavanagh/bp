@@ -1,0 +1,79 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <!--
+
+    NOTE!!
+
+	* Make sure the doctype above is the same as the one in the page  the code will be running inside (the real page).
+	* meta X-UA-Compatible's content value needs to be the same here as in the real page
+	* meta viewport's content value needs to be the same as the real page
+
+	URLS PARAMS
+	?filter=[module] to just run tests for a particular module
+	?filter=[name-of-test] to run a single test
+    ?noglobals make tests fail if the introduce global variables
+    ?notrycatch stop the test runner if an exception is thrown
+
+  -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Test Runner</title>
+  <meta name="description" content="Qunit Test Runnner">
+
+  <!-- jquery first because test libraries have dependency on it -->
+  <script src="../main/libs/jquery/jquery-latest.js"></script>
+
+  <!-- testing tools etc -->
+  <link rel="stylesheet" href="libs/qunit/qunit.css">
+  <script src="libs/qunit/qunit.js"></script><!-- see http://docs.jquery.com/Qunit#API_documentation -->
+  <script src="libs/mockjax/jquery.mockjax.js"></script>
+  <script src="libs/sinon/sinon-latest.js"></script><!-- see http://sinonjs.org/docs/ -->
+  <!--[if IE]>
+  <script src="libs/sinon/sinon-ie-latest.js"></script>
+  <![endif]-->
+  <script src="libs/sinon/sinon-qunit-latest.js"></script><!-- see http://sinonjs.org/qunit/ -->
+
+  <!-- benchmark.js notes
+     * for more precise timings optionally use the applet or in chrome use the enable-benchmarking flag on startup
+  -->
+  <style>applet {position: absolute;left: -9999em;}</style>
+  <script src="libs/benchmark/benchmark.js"></script>
+  <script src="libs/benchmark/benchmark-qunit.js"></script>
+
+  <script src="test-runner-custom.js"></script><!-- custom logic for this test runner -->
+
+
+  <!-- lib js (head) - code not under test -->
+  <script src="../main/libs/modernizr/modernizr-latest.min.js"></script>
+  <script src="../main/libs/require/require-latest.js"></script>
+
+
+  <!-- code under test (head) - prefer to put these in the body unless there is a specific reason -->
+  <!--<script src="../main/js/main.js"></script>-->
+
+</head>
+<body>
+
+	<!-- benchmark.js  -->
+   	<applet code="nano" archive="libs/benchmark/nano.jar"></applet>
+
+	<div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+
+    <!-- lib js (body) - code not under test -->
+    <!-- <script src="../main/js/*"></script> -->
+
+    <!-- ****** CODE UNDER TEST ****** -->
+    <script src="../main/js/main.js"></script>
+
+
+    <!-- ****** TESTS ****** -->
+    <script src="test.js"></script>
+</body>
+</html>
