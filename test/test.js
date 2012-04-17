@@ -1,11 +1,10 @@
-"use strict";
+(function () {
+	"use strict";
 
-module('' /*, {
-   setUp : function() {},
-   tearDown : function() {}
-}*/);   
+	module('');
 
+	test('', 0, function () {
+		//todo
+	});
 
-test('', 0, function myTest() {
-	
-});
+}());
